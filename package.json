@@ -12,6 +12,9 @@
     "url": "git+https://github.com/ianJINW/Commerce-er.git"
   },
   "author": "Njenga Ian Josh",
+  "keywords": [
+    "Commerce","Njenga"," Ian","ianJINW","Authentication","NodeJS","Sequelize"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ianJINW/Commerce-er/issues"
