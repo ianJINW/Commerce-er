@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+  <link rel="stylesheet" href="/css/order.css">
+
+  <main class="order-details-container">
+    <h1>Order Details</h1>
+
+    <% if (order) { %>
+      <ul>
+        <li><strong>Order ID:</strong>
+          <%= order.id %>
+        </li>
+        <li><strong>User ID:</strong>
+          <%= order.userId %>
+        </li>
+        <li><strong>Product ID:</strong>
+          <%= order.productId %>
+        </li>
+        <li><strong>Quantity:</strong>
+          <%= order.quantity %>
+        </li>
+        <li><strong>Total:</strong> $<%= order.total %>
+        </li>
+        <li><strong>Status:</strong>
+          <%= order.status %>
+        </li>
+        <li><strong>Date:</strong>
+          <%= new Date(order.createdAt).toLocaleDateString() %>
+        </li>
+      </ul>
+      <% } else { %>
+        <p>Order not found.</p>
+        <% } %>
+
+          <a href="/api/order">Back to Orders</a>
+  </main>
+
+  <%- include('partials/footer') %>

@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: #151515;
+  color: aliceblue;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: wavy;
+  cursor: pointer;
+}
+
+a:hover {
+  transform: scale(1.1);
+}
+
+* {
+  font-size: small;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  font-size: 1.7dvh;
+  text-shadow: orange 1px 1px;
+  box-sizing: border-box;
+  transition: 0.2s all ease-in-out;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+}
+
+header nav {
+  font-size: 1.2rem;
+}
+
+header {
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  padding: 10px;
+  margin: 10px 0;
+  width: min(50dvw, 800px);
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  border: 0;
+  background: local;
+  transition: all ease-in-out 0.7s;
+  color: beige;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus {
+  border-bottom: 1px rgb(174, 165, 165) underline;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  gap: 50px;
+  padding-bottom: 20px;
+}
+
+footer section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 50px;
+}
+
+footer address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+footer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

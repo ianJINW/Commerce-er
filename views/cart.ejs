@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+  <link rel="stylesheet" href="/css/cart.css">
+  <fieldset class="cart">
+    <legend>Cart</legend>
+    <% if (cart.length> 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cart.forEach(item=> { %>
+            <tr>
+              <td>
+                <a href="/api/product/<%= item.product.id %>">
+                  <%= item.product.title %>
+                </a>
+
+              </td>
+              <td>
+                <%= item.quantity %>
+              </td>
+              <td>$<%= item.product.price %>
+              </td>
+              <td>$<%= (item.quantity * item.product.price).toFixed(2) %>
+              </td>
+              <td>
+                <form action="/api/cart/<%= item.productId %>?_method=DELETE" method="POST">
+                  <button type="submit">Remove</button>
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+
+      <div class="cart-summary">
+        <p>Total Items: <%= cart.reduce((sum, item)=> sum + item.quantity, 0) %></p>
+        <p>Total Price: $<%= cart.reduce((sum, item)=> sum + item.quantity * item.product.price, 0).toFixed(2) %></p>
+        <form action="/api/order" method="POST">
+          <input type="hidden" name="userId" value="<%= user.id %>">
+          <% cart.forEach(item=> { %>
+            <input type="hidden" name="productId" value="<%= item.product.id %>">
+            <input type="hidden" name="quantity" value="<%= item.quantity %>">
+            <% }) %>
+              <button type="submit">Checkout</button>
+        </form>
+      </div>
+      <% } else { %>
+        <p>Your cart is empty.</p>
+        <% } %>
+  </fieldset>
+  <%- include('partials/footer') %>

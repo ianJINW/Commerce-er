@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+  <form action="/api/product" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Product Title" required>
+    <input type="number" name="price" placeholder="Product Price" required>
+    <textarea name="description" placeholder="Product Description" required></textarea>
+    <select id="categorySelect" name="category" required>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="home">Home & Garden</option>
+      <option value="sports">Sports & Outdoors</option>
+      <option value="others">Others</option>
+    </select>
+    <input type="file" name="product" multiple>
+    <button type="submit">Submit</button>
+  </form>
+
+
+
+  <%- include('partials/footer') %>

@@ -1,0 +1,130 @@
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container {
+  min-height: min(60dvw, 900px);
+}
+fieldset {
+  border: 1px dashed brown;
+  gap: 2dvw;
+  width: min(60dvw, 800px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+input[type='button'] {
+  width: min(10dvw, 150px);
+}
+
+.pass {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pass input[type='button'] {
+  height: min(5dvh, 100px);
+}
+
+.modalCreate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5dvw;
+}
+
+.modalC,
+.modalL {
+  width: 30dvw !important;
+  height: 5dvh;
+  padding-bottom: 3dvw;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+/* styles.css */
+
+/* Define keyframes for animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+form {
+  animation: fadeIn 1s ease-out;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  animation: slideIn 0.5s ease-out;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus,
+form button:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input:valid,
+textarea:valid {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+input:invalid,
+textarea:invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}

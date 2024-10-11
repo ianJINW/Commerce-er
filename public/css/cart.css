@@ -1,0 +1,80 @@
+.cart {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.cart legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #243642;
+}
+
+.cart table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart table thead {
+  background-color: #243642;
+  color: white;
+}
+
+.cart table th,
+.cart table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart table th:last-child,
+.cart table td:last-child {
+  text-align: center;
+}
+
+.cart table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.cart-summary p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.cart-summary button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-summary button:hover {
+  background-color: #218838;
+}
+
+button {
+  background-color: #243642;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
