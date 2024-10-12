@@ -9,14 +9,20 @@ module.exports = (sequelize, DataTypes) => {
      */
 		static associate(models) {
 			// define association here
+			Order.belongsTo(models.User, { foreignKey: "userId", as: "user" });
+			Order.belongsToMany(models.Product, {
+				through: "OrderProduct",
+				foreignKey: "orderId",
+				as: "products"
+			});
 		}
 	}
 	Order.init(
 		{
 			userId: DataTypes.INTEGER,
-			productId: DataTypes.JSON,
-			quantity: DataTypes.JSON,
-			total: DataTypes.INTEGER,
+			productId: DataTypes.ARRAY(DataTypes.INTEGER),
+			quantity: DataTypes.ARRAY(DataTypes.INTEGER),
+			total: DataTypes.DECIMAL,
 			status: {
 				type: DataTypes.STRING,
 				defaultValue: "Pending"

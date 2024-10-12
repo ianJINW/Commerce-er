@@ -1,37 +1,54 @@
 <%- include('partials/header') %>
-  <link rel="stylesheet" href="/css/order.css">
-
-  <main class="order-details-container">
+<link rel="stylesheet" href="/css/order.css">
+<main class="order-details-container">
     <h1>Order Details</h1>
-
     <% if (order) { %>
-      <ul>
-        <li><strong>Order ID:</strong>
-          <%= order.id %>
-        </li>
-        <li><strong>User ID:</strong>
-          <%= order.userId %>
-        </li>
-        <li><strong>Product ID:</strong>
-          <%= order.productId %>
-        </li>
-        <li><strong>Quantity:</strong>
-          <%= order.quantity %>
-        </li>
-        <li><strong>Total:</strong> $<%= order.total %>
-        </li>
-        <li><strong>Status:</strong>
-          <%= order.status %>
-        </li>
-        <li><strong>Date:</strong>
-          <%= new Date(order.createdAt).toLocaleDateString() %>
-        </li>
-      </ul>
-      <% } else { %>
+        <div class="order-info">
+            <ul>
+                <li><strong>Order ID:</strong>
+                    <%= order.id %>
+                </li>
+                <li><strong>User:</strong>
+                    <%= user %>
+                </li>
+                <li><strong>Product IDs:</strong>
+                    <%= order.productId.join(', ') %>
+                </li>
+                <li><strong>Quantities:</strong>
+                    <%= order.quantity.join(' , ') %>
+                </li>
+                <li><strong>Total:</strong> $
+                    <%= order.total %>
+                </li>
+                <li><strong>Status:</strong>
+                    <%= order.status %>
+                </li>
+                <li><strong>Date:</strong>
+                    <%= new Date(order.createdAt).toLocaleString() %>
+                </li>
+            </ul>
+        </div>
+        <div class="product-list">
+            <h2>Products in Order</h2>
+            <ul>
+                <% if (order.products && order.products.length > 0) { %>
+                    <% order.products.forEach(product => { %>
+                    <li> <strong>Product Name:</strong>
+                        <%= product.name %><br>
+                        <strong>Quantity:</strong>
+                        <%= product.OrderProduct.quantity %>
+                        <!-- Accessing through table attribute -->
+                    </li>
+                    <% }) %>
+                    <% } else { %>
+                    <li>No products found for this order.</li>
+                <% } %>
+            </ul>
+        </div>
+        <% } else { %>
         <p>Order not found.</p>
-        <% } %>
-
-          <a href="/api/order">Back to Orders</a>
-  </main>
-
-  <%- include('partials/footer') %>
+    <% } %>
+    <div class="navigation"> <a class="button" href="/api/order">Back to
+            Orders</a> </div>
+</main>
+<%- include('partials/footer') %>

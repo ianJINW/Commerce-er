@@ -48,6 +48,8 @@
             <input type="hidden" name="productId" value="<%= item.product.id %>">
             <input type="hidden" name="quantity" value="<%= item.quantity %>">
             <% }) %>
+              <input type="hidden" name="total"
+                value="<%= Number(cart.reduce((sum, item)=> sum + item.quantity * item.product.price, 0).toFixed(2)) %>">
               <button type="submit">Checkout</button>
         </form>
       </div>

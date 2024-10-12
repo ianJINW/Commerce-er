@@ -7,7 +7,7 @@ module.exports = {
 		try {
 			const order = await db.Order.create({
 				userId,
-				productId,
+				productId: Array.isArray(productId) ? productId : [productId],
 				quantity,
 				total
 			});
@@ -35,7 +35,7 @@ module.exports = {
 			req.flash("success", "Orders retrieved successfully.");
 			res.render("orders", { orders });
 		} catch (error) {
-			req.flash("error", "Order not retrieved");
+			req.flash("error", "Orders not retrieved");
 			console.error("Error retrieving orders:", error);
 			res.redirect("/api/product");
 		}
@@ -45,8 +45,18 @@ module.exports = {
 
 		try {
 			const order = await db.Order.findOne({
-				where: { id }
+				where: { id },
+				include: [
+					{ model: db.User, as: "user" },
+					{
+						model: db.Product,
+						as: "products",
+						through: { attributes: ["quantity"] }
+					}
+				]
 			});
+
+			console.log(order);
 
 			if (!order) {
 				req.flash("error", "Order not found.");

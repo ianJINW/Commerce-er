@@ -3,7 +3,6 @@ const db = require("../models");
 module.exports = {
 	AddToCart: async (req, res) => {
 		const { userId, productId, quantity } = req.body;
-		console.log(req.body);
 		let it;
 
 		try {
@@ -23,8 +22,6 @@ module.exports = {
 			}
 
 			req.flash("success", "Added to cart sucessfully");
-			console.log(it);
-
 			res.redirect("/api/cart");
 		} catch (error) {
 			req.flash("error", "Not added to cart yet");
@@ -40,8 +37,6 @@ module.exports = {
 			});
 
 			req.flash("success", "Retrieving successful");
-			console.log(cart);
-
 			res.render("cart", { cart });
 		} catch (error) {
 			req.flash("error", "Retrieving unsuccessful");
