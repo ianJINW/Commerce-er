@@ -15,8 +15,8 @@ This is a comprehensive eCommerce application built with Node.js, Express, Seque
 1. **Clone the repository**
 
     ```bash
-    git clone https://github.com/ianJINW/ecommerce-app.git
-    cd ecommerce-app
+    git clone https://github.com/ianJINW/Commerce-er.git
+    cd Commerce-er
     ```
 
 2. **Install dependencies**
